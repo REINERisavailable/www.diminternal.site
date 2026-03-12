@@ -1,37 +1,42 @@
+import { HeroGeometric } from "@/components/ui/shape-landing-hero";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export default function TermsPage() {
     return (
-        <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-sm border border-slate-200 p-8 sm:p-12">
-                <Link href="/" className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-500 mb-8">
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    Back to DIM Internal Studio
-                </Link>
-                <h1 className="text-3xl font-bold text-slate-900 tracking-tight mb-8">Internal Terms of Service</h1>
-
-                <div className="prose prose-slate max-w-none">
-                    <p className="lead text-lg text-slate-600 mb-6">
-                        Welcome to the DIM Internal Application.
-                    </p>
-                    <p className="mb-4">
-                        <strong>1. Internal Use Only:</strong> This application and its related services (such as the Image Studio) are strictly for the internal use of DIM employees and authorized contractors. Unauthorized access, sharing of login credentials, or external distribution of internal tools is strictly prohibited.
-                    </p>
-                    <p className="mb-4">
-                        <strong>2. Data and Content:</strong> All content generated, modified, or uploaded to this application remains the property of DIM. Do not upload sensitive personal data or classified materials unless explicitly authorized by your project requirements.
-                    </p>
-                    <p className="mb-4">
-                        <strong>3. Artificial Intelligence:</strong> Some tools (e.g., text extraction and image enhancements) utilize third-party AI models (Kie.ai, Nano Banana). You must review all AI-generated content for accuracy and brand compliance before publishing it externally.
-                    </p>
-                    <p className="mb-4">
-                        <strong>4. Account Access:</strong> Access to this system is managed via DIM's internal identity provider. Access may be revoked at any time without prior notice at management's discretion.
-                    </p>
-                    <div className="mt-8 pt-8 border-t border-slate-200">
-                        <p className="text-sm text-slate-500">Last updated: {new Date().toLocaleDateString()}</p>
+        <main className="flex flex-col items-center justify-center bg-[#030303]">
+            <HeroGeometric
+                badge="Internal Policy"
+                title1="Terms of"
+                title2="Service"
+                description="This application is strictly for internal DIM use. Unauthorized access, sharing of credentials, or external distribution is prohibited."
+                actionMenu={
+                    <div className="space-y-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left">
+                            {[
+                                { title: "1. Internal Use Only", body: "DIM employees and authorized contractors only. No external sharing." },
+                                { title: "2. Data & Content", body: "All generated content belongs to DIM. Do not upload sensitive personal data." },
+                                { title: "3. AI Tools", body: "AI-generated content must be reviewed for accuracy before external publishing." },
+                                { title: "4. Account Access", body: "Access may be revoked at any time at management's discretion." },
+                            ].map((item) => (
+                                <div key={item.title} className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08]">
+                                    <h3 className="text-white font-semibold text-sm mb-1">{item.title}</h3>
+                                    <p className="text-white/50 text-sm">{item.body}</p>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="flex justify-center">
+                            <Link href="/">
+                                <Button variant="outline" className="h-12 px-8 rounded-full border-white/20 hover:bg-white/10 text-white bg-transparent">
+                                    <ArrowLeft className="mr-2 h-4 w-4" />
+                                    Back to Dashboard
+                                </Button>
+                            </Link>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                }
+            />
+        </main>
     );
 }

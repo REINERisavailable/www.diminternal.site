@@ -8,9 +8,9 @@ export default function ImagesPage() {
         <main className="flex flex-col items-center justify-center bg-[#030303]">
             <HeroGeometric
                 badge="Image Studio"
-                title1="We are"
+                title1=""
                 title2="Still Cooking :')"
-                description="The ultimate hub for beautifully branded social media assets is under active development. Stay tuned for the simplest generation flow yet."
+                description="The hub for beautifully branded social media assets for Nelda is under active development."
                 actionMenu={
                     <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
                         <Link href="/">
